@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">AMA-Geofence</string>
+    <string name="add_message">Dodaj wiadomosc</string>
+
+    <string name="hint_word">Word...</string>
+    <string name="button_save">Save</string>
+    <string name="empty_not_saved">Word not saved because it is empty.</string>
+    <string name="load_config">Load config</string>
+    <string name="start_log">Start log</string>
+</resources>

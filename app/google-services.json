@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "221814605804",
+    "firebase_url": "https://ama-geofence.firebaseio.com",
+    "project_id": "ama-geofence",
+    "storage_bucket": "ama-geofence.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:221814605804:android:2b27c7ef2a2ed4993fe2c9",
+        "android_client_info": {
+          "package_name": "com.example.geofence"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "221814605804-mapvkc93ofe57meqkjgtaff4o2s8kfgj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCAAeZG1HQaAqVgFStfB_8AUFycM9ddlZE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "221814605804-mapvkc93ofe57meqkjgtaff4o2s8kfgj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
