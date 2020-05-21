@@ -2,6 +2,7 @@ package com.example.ama_geofence
 
 
 import android.content.Context
+import android.content.Intent
 import android.location.LocationManager
 import android.net.ConnectivityManager
 import android.os.Bundle
@@ -50,19 +51,19 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
 
-        val recyclerView = findViewById<RecyclerView>(R.id.recyclerview)
-        val adapter = LogListAdapter(this)
-        recyclerView.adapter = adapter
-        recyclerView.layoutManager = LinearLayoutManager(this)
+       // val recyclerView = findViewById<RecyclerView>(R.id.recyclerview)
+       // val adapter = LogListAdapter(this)
+       // recyclerView.adapter = adapter
+       // recyclerView.layoutManager = LinearLayoutManager(this)
 
         logViewModel = ViewModelProvider(this).get(LogViewModel::class.java)
-        logViewModel.allMessages.observe(this, Observer { messages ->
-            messages?.let { adapter.setMessages(it) }
-        })
+       // logViewModel.allMessages.observe(this, Observer { messages ->
+          //  messages?.let { adapter.setMessages(it) }
+       // })
 
 
         val btnLoadConfig = findViewById<Button>(R.id.btnLoadConfig)
-        val btnStartLog = findViewById<Button>(R.id.btnStartLog)
+       // val btnStartLog = findViewById<Button>(R.id.btnStartLog)
         val btnClearLog = findViewById<Button>(R.id.btnClearLog)
         val txtUserId = findViewById<EditText>(R.id.txtUserId)
 
@@ -71,28 +72,28 @@ class MainActivity : AppCompatActivity() {
         externalDataBase = ExtDataBase(this)
 
 
-        btnLoadConfig.run {
-            setOnClickListener {
+        btnLoadConfig.setOnClickListener {
                 if(externalDataBase.hasPermission() && isNetworkAvailable())
                     loadConfiguration(txtUserId.text.toString())
-            }
+            val intent= Intent (this, SecondActivity::class.java)
+            startActivity(intent)
         }
+//
+//        btnStartLog.setOnClickListener {
+//                if(location.hasPermission()) {
+//                    if (isLocationAvailable())
+//                        startLogLocation()
+//                }else{
+//                    location.givePermission()
+//                }
+//            }
 
-        btnStartLog.run {
-            setOnClickListener {
-                if(location.hasPermission()) {
-                    if (isLocationAvailable())
-                        startLogLocation()
-                }else{
-                    location.givePermission()
-                }
-            }
-        }
 
-        btnClearLog.run {
+        btnClearLog.
             setOnClickListener {
-                clearLog()
-            }
+                val intent= Intent (this, SecondActivity::class.java)
+                startActivity(intent)
+
         }
     }
 
@@ -104,20 +105,20 @@ class MainActivity : AppCompatActivity() {
 
     private fun loadConfiguration(userId: String) = externalDataBase.readConfiguration(userId)
 
-    private fun startLogLocation(){
-        location.getLastLocation()
-        activityTransition.start()
+//    private fun startLogLocation(){
+//        location.getLastLocation()
+//        activityTransition.start()
+//
+//        timer.schedule(object : TimerTask() {
+//            override fun run() {
+//                externalDataBase.write(DateAndTime.dateAndTime)
+//            }
+//        }, 5000, CurrentState.configuration!!.interval * 60 * 1000)
+//    }
 
-        timer.schedule(object : TimerTask() {
-            override fun run() {
-                externalDataBase.write(DateAndTime.dateAndTime)
-            }
-        }, 5000, CurrentState.configuration!!.interval * 60 * 1000)
-    }
-
-    fun clearLog(){
-        logViewModel.deleteAll()
-    }
+//    fun clearLog(){
+//        logViewModel.deleteAll()
+//    }
 
     private fun isNetworkAvailable(): Boolean {
         val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
@@ -132,15 +133,15 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun isLocationAvailable(): Boolean {
-        val locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
-
-        return if(locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)){
-            log(LogMessage(text = "Location service ON"))
-            true
-        }else{
-            log(LogMessage(text = "Location service OFF"))
-            false
-        }
-    }
+//    private fun isLocationAvailable(): Boolean {
+//        val locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
+//
+//        return if(locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)){
+//            log(LogMessage(text = "Location service ON"))
+//            true
+//        }else{
+//            log(LogMessage(text = "Location service OFF"))
+//            false
+//        }
+//    }
 }

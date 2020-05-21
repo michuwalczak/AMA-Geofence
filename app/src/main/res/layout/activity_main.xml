@@ -64,18 +64,7 @@
             tools:layout_conversion_absoluteHeight="48dp"
             tools:layout_conversion_absoluteWidth="410dp" />
 
-        <Button
-            android:id="@+id/btnStartLog"
-            android:layout_width="311dp"
-            android:layout_height="48dp"
-            android:layout_marginBottom="4dp"
-            android:text="@string/start_log"
-            app:layout_constraintBottom_toTopOf="@+id/btnClearLog"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.535"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:layout_conversion_absoluteHeight="48dp"
-            tools:layout_conversion_absoluteWidth="410dp" />
+
 
         <Button
             android:id="@+id/btnClearLog"

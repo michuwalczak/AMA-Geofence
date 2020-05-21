@@ -42,7 +42,7 @@ class Location(private val context: Context) {
         }
 
         task.addOnFailureListener {
-            MainActivity.log(LogMessage(text = "Localion updates activation failed"))
+            MainActivity.log(LogMessage(text = "Location updates activation failed"))
         }
     }
 

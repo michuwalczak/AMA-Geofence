@@ -7,4 +7,5 @@
     <string name="empty_not_saved">Word not saved because it is empty.</string>
     <string name="load_config">Load config</string>
     <string name="start_log">Start log</string>
+    <string name="back">back</string>
 </resources>
